@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บของฉัน</title>
+    <style>
+        /* พื้นหลังของหน้า */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100%; /* กำหนดความสูงขั้นต่ำของ body */
+            overflow: hidden; /* ซ่อน scrollbar */
+            background-color: #f4f4f4; /* สีพื้นหลัง */
+        }
+
+        /* พื้นหลังครึ่งจอ */
+        .half-background {
+            width: 50%;
+            height: 100vh;
+            background-color: #3498db;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        /* รูปภาพที่คุณจะเพิ่มเอง */
+        .image-half {
+            width: 50%;
+            height: 100vh;
+            background-image: url('images/img2.jpg'); /* ใส่ URL ของรูปที่คุณต้องการ */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        /* เลย์เอาต์ของข้อความ */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .welcome-small {
+            font-size: 40px;
+        }
+
+        .welcome-big {
+            font-size: 60px;
+        }
+
+        .welcome-very-small {
+            font-size: 20px;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        /* ข้อความชื่อที่มุมซ้ายบน */
+        .name {
+            position: fixed; /* Fixes the name at the top left */
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: normal;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ปุ่ม "ดูข้อมูลเพิ่มเติม" */
+        .more-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            animation: slideIn 1s ease-out; /* อนิเมชั่นเลื่อนเข้ามาจากขวา */
+        }
+
+        .more-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* อนิเมชั่น Slide In */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* เอฟเฟกต์ Fade Out */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-small {
+                font-size: 30px;
+            }
+
+            .welcome-big {
+                font-size: 50px;
+            }
+
+            .welcome-very-small {
+                font-size: 25px;
+            }
+
+            .content {
+                left: 20%;
+            }
+
+            .name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- พื้นหลังครึ่งจอ -->
+    <div class="half-background"></div>
+
+    <!-- รูปภาพที่คุณจะเพิ่มเอง -->
+    <div class="image-half"></div>
+
+    <!-- ข้อความชื่อที่มุมซ้ายบน -->
+    <div class="name">ณัฏฐกิตติ์ หาญเจริญชัย</div>
+
+    <!-- ข้อความ -->
+    <div class="content">
+        <div class="welcome-small">สวัสดี</div>
+        <div class="welcome-big">ผมชื่อก้อง</div>
+        <div class="welcome-very-small">Photography / Videographers / Programming</div>
+        <!-- ปุ่ม "ดูข้อมูลเพิ่มเติม" -->
+        <a href="javascript:void(0);" class="more-btn" onclick="goToNextPage()">ดูข้อมูลเพิ่มเติม</a>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            // เพิ่มคลาส fade-out ให้กับ body
+            document.body.classList.add('fade-out');
+            
+            // รอสักครู่ก่อนเปลี่ยนหน้า
+            setTimeout(() => {
+                window.location.href = "show.html"; // เปลี่ยน URL ไปยังหน้าใหม่
+            }, 1000); // 1 วินาที (ความยาวของอนิเมชั่น)
+        }
+    </script>
+</body>
+</html>
